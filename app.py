@@ -1,5 +1,8 @@
 # Flask Backend
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
 from flask import Flask, render_template, request
 import os
 

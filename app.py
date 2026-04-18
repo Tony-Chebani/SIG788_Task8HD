@@ -93,16 +93,13 @@ def process_image(image_path):
         return "Error processing image."
 
 # -----------------------------
-# HEALTH CHECK (separate route)
+# ROUTES
 # -----------------------------
 @app.route("/health")
 def health():
     return "App is running!"
 
 
-# -----------------------------
-# MAIN APP ROUTE
-# -----------------------------
 @app.route("/", methods=["GET", "POST"])
 def index():
     response = ""
@@ -126,10 +123,14 @@ def index():
 
     except Exception as e:
         print(f"Route error: {e}")
-        response = "Something went wrong. Please try again."
+        response = "Something went wrong. Check logs."
 
-    # ✅ ALWAYS render template for GET
-    return render_template("index.html", response=response)
+    # ✅ ALWAYS return template
+    try:
+        return render_template("index.html", response=response)
+    except Exception as e:
+        print(f"Template error: {e}")
+        return f"Template error: {e}"
 
 # -----------------------------
 # LOCAL RUN (ignored in Azure)

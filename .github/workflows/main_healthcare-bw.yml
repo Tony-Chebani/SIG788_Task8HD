@@ -70,18 +70,37 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: python-app
-
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_99E5DEF94D354CB98E17C13213B76F9C }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_690DAACD7FF44569B827C91B038625C0 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C5FC9993EF1D4D7882E61C3E6B705BD8 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C5FC9993EF1D4D7882E61C3E6B705BD8 }}         
 
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        id: deploy-to-webapp
-        with:
-          app-name: 'healthcare-bw'
-          slot-name: 'Production'
-          
+      - name: Ensure Web App is running
+        run: |
+          APP_NAME="healthcare-bw"
+          RESOURCE_GROUP="<YOUR_RESOURCE_GROUP>"
+
+          echo "Checking Web App state..."
+
+          STATE=$(az webapp show \
+            --name $APP_NAME \
+            --resource-group $RESOURCE_GROUP \
+            --query "state" \
+            --output tsv)
+
+          echo "Current state: $STATE"
+
+          if [ "$STATE" != "Running" ]; then
+            echo "Web App is not running. Starting it..."
+            az webapp start \
+              --name $APP_NAME \
+              --resource-group $RESOURCE_GROUP
+
+            echo "Waiting for app to start..."
+            sleep 20
+          else
+            echo "Web App is already running."
+          fi

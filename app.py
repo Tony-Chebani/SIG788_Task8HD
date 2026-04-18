@@ -100,6 +100,11 @@ def index():
     response = ""
 
     try:
+        # ✅ Health check (GET request)
+        if request.method == "GET":
+            return "App is running!"
+
+        # ✅ Handle form submission (POST)
         if request.method == "POST":
 
             # TEXT INPUT

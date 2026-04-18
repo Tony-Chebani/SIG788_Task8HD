@@ -40,6 +40,8 @@ jobs:
           path: |
             .
             !antenv/
+            #Additional code
+            !templates/
 
       # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:

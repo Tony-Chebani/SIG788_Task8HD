@@ -8,10 +8,10 @@ from msrest.authentication import CognitiveServicesCredentials
 
 app = Flask(__name__)
 
-# additional code
-@app.route("/")
-def home():
-    return "App is running!"
+## additional code
+#@app.route("/")
+#def home():
+#    return "App is running!"
 
 app.config["UPLOAD_FOLDER"] = "static/uploads"
 

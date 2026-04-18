@@ -18,11 +18,11 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 # -----------------------------
 # ENV VARIABLES (SAFE)
 # -----------------------------
-AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
-AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+AZURE_OPENAI_API_KEY = os.getenv("2RfVc87hTQsVac6pgV6ZNuogOZpdOk7DKgLPU6I5pSCcIzrmJOjPJQQJ99CDACR0EKYXJ3w3AAABACOGVSsI")
+AZURE_OPENAI_ENDPOINT = os.getenv("https://healthcareopenai.openai.azure.com/")
 
-AZURE_VISION_KEY = os.getenv("AZURE_VISION_KEY")
-AZURE_VISION_ENDPOINT = os.getenv("AZURE_VISION_ENDPOINT")
+AZURE_VISION_KEY = os.getenv("FDqjSBTzdzqQ4waQdb4An2bGNGymrN7AAfh7JIUmAUHTIp1qLPolJQQJ99CDACrIdLPXJ3w3AAAFACOGPbyv")
+AZURE_VISION_ENDPOINT = os.getenv("https://healthcarevision.cognitiveservices.azure.com/")
 
 # -----------------------------
 # CLIENTS (SAFE INIT)

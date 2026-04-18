@@ -10,7 +10,9 @@ from openai import AzureOpenAI
 from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from msrest.authentication import CognitiveServicesCredentials
 
-app = Flask(__name__)
+#app = Flask(__name__)
+
+app = Flask(__name__, template_folder="templates")
 
 # -----------------------------
 # CONFIGURATION

@@ -93,18 +93,21 @@ def process_image(image_path):
         return "Error processing image."
 
 # -----------------------------
-# ROUTES
+# HEALTH CHECK (separate route)
+# -----------------------------
+@app.route("/health")
+def health():
+    return "App is running!"
+
+
+# -----------------------------
+# MAIN APP ROUTE
 # -----------------------------
 @app.route("/", methods=["GET", "POST"])
 def index():
     response = ""
 
     try:
-        # ✅ Health check (GET request)
-        if request.method == "GET":
-            return "App is running!"
-
-        # ✅ Handle form submission (POST)
         if request.method == "POST":
 
             # TEXT INPUT
@@ -125,6 +128,7 @@ def index():
         print(f"Route error: {e}")
         response = "Something went wrong. Please try again."
 
+    # ✅ ALWAYS render template for GET
     return render_template("index.html", response=response)
 
 # -----------------------------

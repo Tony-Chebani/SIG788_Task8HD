@@ -81,7 +81,7 @@ jobs:
       - name: Ensure Web App is running
         run: |
           APP_NAME="healthcare-bw"
-          RESOURCE_GROUP="<YOUR_RESOURCE_GROUP>"
+          RESOURCE_GROUP="HealthcareBW-RG"
 
           echo "Checking Web App state..."
 

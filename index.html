@@ -1,108 +1,25 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AI Healthcare Bot</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            margin: 40px;
-            background-color: #f4f6f8;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 500px;
-            margin: auto;
-        }
-        input, button {
-            padding: 10px;
-            margin-top: 10px;
-            width: 100%;
-        }
-        .response {
-            margin-top: 20px;
-            background: #e8f0fe;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .mic-btn {
-            background-color: #ff4d4d;
-            color: white;
-        }
-        .speak-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
+    <title>HealthBot</title>
 </head>
-
 <body>
-<div class="container">
-    <h2>AI Healthcare Recommendation Bot</h2>
+    <h1>HealthBot</h1>
 
     <form method="POST" enctype="multipart/form-data">
-        <label>Enter Text:</label>
-        <input type="text" id="text_input" name="text_input" placeholder="Describe symptoms...">
-
-        <!-- 🎤 Voice Input -->
-        <button type="button" class="mic-btn" onclick="startListening()">🎤 Speak</button>
-
-        <label>Upload Image:</label>
-        <input type="file" name="image">
-
-        <button type="submit">Submit</button>
+        <input type="text" name="text_input" placeholder="Enter text">
+        <button type="submit">Send</button>
     </form>
 
-    {% if response %}
-    <div class="response">
-        <strong>Bot Response:</strong>
-        <p id="botText">{{ response }}</p>
+    <br>
 
-        <!-- 🔊 Speak Button -->
-        <button class="speak-btn" onclick="speakResponse()">🔊 Speak Response</button>
-    </div>
-    {% endif %}
-</div>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <button type="submit">Upload Image</button>
+    </form>
 
-<script>
-// 🎤 Voice Input
-function startListening() {
-    const recognition = new webkitSpeechRecognition();
-    recognition.lang = "en-US";
-
-    recognition.start();
-
-    recognition.onresult = function(event) {
-        document.getElementById("text_input").value =
-            event.results[0][0].transcript;
-    };
-}
-
-// 🔊 Text-to-Speech
-function speakResponse() {
-    const text = document.getElementById("botText").innerText;
-
-    const speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "en-US";
-    speech.rate = 1;   // speed
-    speech.pitch = 1;  // tone
-
-    window.speechSynthesis.speak(speech);
-}
-
-// 🔥 Auto-speak when response loads
-window.onload = function() {
-    const botText = document.getElementById("botText");
-    if (botText) {
-        speakResponse();
-    }
-};
-</script>
-
-<br>
-<br>
-<h4 align="center"> Designed & Developed by Tibone Tony Chebani (Deakin University)</h4>
+    <h2>Response:</h2>
+    <p>{{ response }}</p>
 </body>
 </html>

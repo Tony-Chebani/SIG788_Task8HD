@@ -7,6 +7,12 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from msrest.authentication import CognitiveServicesCredentials
 
 app = Flask(__name__)
+
+# additional code
+@app.route("/")
+def home():
+    return "App is running!"
+
 app.config["UPLOAD_FOLDER"] = "static/uploads"
 
 UPLOAD_FOLDER = "static/uploads"
@@ -75,5 +81,6 @@ def index():
 #if __name__ == "__main__":
 #    app.run(debug=True)
 
-if __name__ == "__main__":
+if __name__ == "__main__":
+
     app.run()

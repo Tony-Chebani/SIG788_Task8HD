@@ -1,5 +1,0 @@
-Flask
-openai
-azure-cognitiveservices-vision-computervision
-msrest
-gunicorn

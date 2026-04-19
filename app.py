@@ -128,7 +128,7 @@ def process_image(image_path):
 #def home():
 #    return "Dependencies working!"
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
     #response = ""
 

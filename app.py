@@ -132,17 +132,44 @@ def process_image(image_path):
 #def home():
     #response = ""
 
-@app.route("/")
+#@app.route("/")
+#def home():
+    #return "Dependencies working!"
+
+@app.route("/", methods=["GET", "POST"])
 def home():
-    return "Dependencies working!"
+    response = ""
     
+#    try:
+#        if request.method == "POST":
+
+#            user_input = request.form.get("text_input")
+#            if user_input:
+#                response = process_text(user_input)
+
+#             elif "image" in request.files:
+#                image = request.files["image"]
+
+#                if image and image.filename:
+#                    filepath = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
+#                    image.save(filepath)
+#                    response = process_image(filepath)
+
+#    except Exception as e:
+#        print("Route error:", e)
+#        response = "Something went wrong."
+
+#    return render_template("index.html", response=response)
+
     try:
         if request.method == "POST":
 
+            # TEXT INPUT
             user_input = request.form.get("text_input")
             if user_input:
                 response = process_text(user_input)
 
+            # IMAGE INPUT
             elif "image" in request.files:
                 image = request.files["image"]
 
@@ -155,6 +182,7 @@ def home():
         print("Route error:", e)
         response = "Something went wrong."
 
+    # ✅ ALWAYS render template (for GET and POST)
     return render_template("index.html", response=response)
 
 # -----------------------------

@@ -128,10 +128,14 @@ def process_image(image_path):
 #def home():
 #    return "Dependencies working!"
 
-@app.route("/")
-def home():
+#@app.route("/")
+#def home():
     #response = ""
 
+@app.route("/")
+def home():
+    return "Dependencies working!"
+    
     try:
         if request.method == "POST":
 

@@ -50,9 +50,15 @@ except Exception as e:
 # -----------------------------
 # FUNCTIONS
 # -----------------------------
+#def process_text(user_input):
+#    if not client:
+#        return "AI service not configured."
+
 def process_text(user_input):
-    if not client:
-        return "AI service not configured."
+    try:
+        return "AI working (test)"
+    except Exception as e:
+        return str(e)
 
     try:
         response = client.chat.completions.create(

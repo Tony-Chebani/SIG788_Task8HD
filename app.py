@@ -129,7 +129,7 @@ def process_image(image_path):
 #    return "Dependencies working!"
 
 @app.route("/")
-def index():
+def home():
     #response = ""
 
     try:

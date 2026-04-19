@@ -1,10 +1,19 @@
 # Flask Backend
-from flask import Flask, render_template, request
-import os
+try:
+    from flask import Flask, render_template, request
+    import os
+    from openai import AzureOpenAI
+    from azure.cognitiveservices.vision.computervision import ComputerVisionClient
+    from msrest.authentication import CognitiveServicesCredentials
+except Exception as e:
+    print("IMPORT ERROR:", e)
 
-from openai import AzureOpenAI
-from azure.cognitiveservices.vision.computervision import ComputerVisionClient
-from msrest.authentication import CognitiveServicesCredentials
+#from flask import Flask, render_template, request
+#import os
+
+#from openai import AzureOpenAI
+#from azure.cognitiveservices.vision.computervision import ComputerVisionClient
+#from msrest.authentication import CognitiveServicesCredentials
 
 app = Flask(__name__, template_folder="templates")
 #app = Flask(__name__)

@@ -37,10 +37,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-         # path: |
-         #   .
-         #   !antenv/
-          path: .
+          path: |
+            .
+            !antenv/
 
       # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:
@@ -64,14 +63,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F13D2618478A4AB5872A5FE86C8881B9 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C68D3FB39CAC4FEE87ABFB891564030E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BF8218D5E2334415BD292F8AF13427AE }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E4BEAFD891B04039842D432088F76C36 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F54046200680453EA22E2BE52E0B122D }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_766BEA8BDEAE4829BAA88505FBB2B951 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
-        #id: deploy-to-webapp
+        id: deploy-to-webapp
         with:
           app-name: 'healthcare-bw'
-          #slot-name: 'Production'
+          slot-name: 'Production'
           

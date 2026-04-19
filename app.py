@@ -91,10 +91,13 @@ def process_image(image_path):
 # -----------------------------
 # ROUTES
 # -----------------------------
-@app.route("/healthbot")
-def health():
-    return "App is running!"
+#@app.route("/health")
+#def health():
+#    return "App is running!"
 
+@app.route("/")
+def index():
+    return "Flask is working!"
 
 @app.route("/", methods=["GET", "POST"])
 def index():

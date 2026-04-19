@@ -136,9 +136,9 @@ def process_image(image_path):
 #def home():
     #return "Dependencies working!"
 
-@app.route("/", methods=["GET", "POST"])
-def home():
-    response = ""
+#@app.route("/", methods=["GET", "POST"])
+#def home():
+#    response = ""
 
     try:
         if request.method == "POST":

@@ -95,9 +95,13 @@ def process_image(image_path):
 #def health():
 #    return "App is running!"
 
+#@app.route("/")
+#def index():
+#    return "Flask is working!"
+
 @app.route("/")
 def index():
-    return "Flask is working!"
+    return render_template("index.html", response="Test OK")
 
 @app.route("/", methods=["GET", "POST"])
 def index():

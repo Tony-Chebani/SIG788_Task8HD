@@ -91,7 +91,7 @@ def process_image(image_path):
 # -----------------------------
 # ROUTES
 # -----------------------------
-@app.route("/health")
+@app.route("/healthbot")
 def health():
     return "App is running!"
 

@@ -99,13 +99,14 @@ def process_image(image_path):
 #def index():
 #    return "Flask is working!"
 
-@app.route("/")
-def index():
-    return render_template("index.html", response="Test OK")
+#@app.route("/")
+#def index():
+#    return render_template("index.html", response="Test OK")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    response = ""
+    #response = ""
+    response = "Ready"
 
     try:
         if request.method == "POST":

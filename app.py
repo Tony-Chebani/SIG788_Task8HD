@@ -15,8 +15,8 @@ except Exception as e:
 #from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 #from msrest.authentication import CognitiveServicesCredentials
 
-app = Flask(__name__, template_folder="templates")
-#app = Flask(__name__)
+#app = Flask(__name__, template_folder="templates")
+app = Flask(__name__)
 
 # -----------------------------
 # CONFIG
@@ -119,10 +119,14 @@ def process_image(image_path):
 #def index():
 #    return render_template("index.html", response="Test OK")
 
-@app.route("/", methods=["GET", "POST"])
-def index():
+#@app.route("/", methods=["GET", "POST"])
+#def index():
     #response = ""
-    response = "Ready"
+#    response = "Ready"
+
+@app.route("/")
+def home():
+    return "Dependencies working!"
 
     try:
         if request.method == "POST":
@@ -146,5 +150,8 @@ def index():
     return render_template("index.html", response=response)
 
 # -----------------------------
+#if __name__ == "__main__":
+#    app.run(host="0.0.0.0", port=8000)
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    app.run()

@@ -169,14 +169,14 @@ def home():
             if user_input:
                 response = process_text(user_input)
 
-            # IMAGE INPUT
-            elif "image" in request.files:
-                image = request.files["image"]
+           # # IMAGE INPUT
+           # elif "image" in request.files:
+           #     image = request.files["image"]
 
-                if image and image.filename:
-                    filepath = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
-                    image.save(filepath)
-                    response = process_image(filepath)
+           #     if image and image.filename:
+           #         filepath = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
+           #         image.save(filepath)
+           #         response = process_image(filepath)
 
     except Exception as e:
         print("Route error:", e)
@@ -189,5 +189,5 @@ def home():
 #if __name__ == "__main__":
 #    app.run(host="0.0.0.0", port=8000)
 
-#if __name__ == "__main__":
-#    app.run()
+if __name__ == "__main__":
+    app.run()

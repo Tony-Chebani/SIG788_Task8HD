@@ -9,7 +9,8 @@ from msrest.authentication import CognitiveServicesCredentials
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "static/uploads"
 
-UPLOAD_FOLDER = "static/uploads"
+UPLOAD_FOLDER = "/tmp/uploads"
+#UPLOAD_FOLDER = "static/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
@@ -77,5 +78,6 @@ def index():
 #if __name__ == "__main__":
 #    app.run(debug=True)
 
-if __name__ == "__main__":
+if __name__ == "__main__":
+
     app.run()
